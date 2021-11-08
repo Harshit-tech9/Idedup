@@ -1,0 +1,40 @@
+<html>
+  <head>
+  
+  </head>
+  <body>
+    <div>
+      <h1>duplicate finder</h1>
+      <p>Please enter details to find similarity:</p>
+ 
+      <form action="{{ url_for('index') }}" method="POST"> 
+        </div>
+        <br>
+        <label>first_name:</label>
+        <input type="text" name="first_name">
+        </br><br>
+        <label>last_name:</label>
+        <input type="text" name="last_name">
+        </br> <br>
+        <label>address:</label>
+        <input type="text" name="address">
+        </br><br>
+        <label>city:</label>
+        <input type="text" name="city">
+        </br><br>
+        <input type="submit" name="next" value="Next">
+  </form>
+  <br><br>
+     {% if duplicate %}
+       <h2>Results</h2>
+       <p>similarity ratio = {{duplicate[0]}}.
+       <br>
+       {% if duplicate[1] %}
+         This is a duplicate.
+       {%else%}
+         This is a not a duplicate.
+       {% endif %} 
+    {% endif %}
+   </div>
+ </body>
+</html>
